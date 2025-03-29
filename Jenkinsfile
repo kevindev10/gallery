@@ -49,13 +49,13 @@ pipeline{
 			slackSend botUser: true, 
 			channel: '#ip1', 
 			color: '#00ff00', 
-			message: ${currentBuild.number} ${WEBSITE_URL}, 
-			tokenCredentialId: ${SLACK_TOKEN}
+			message: "${currentBuild.number} ${WEBSITE_URL}", 
+			tokenCredentialId: "${SLACK_TOKEN}"
 			
 			
         }
         failure {
-            mail to: ${EMAIL_RECIPIENT},
+            mail to: "${EMAIL_RECIPIENT}",
                  subject: 'Pipeline Failure Notification',
                  body: 'The pipeline failed at some stage. Please check Jenkins logs for details.'
         }
