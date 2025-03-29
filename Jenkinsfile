@@ -49,7 +49,7 @@ pipeline{
 			slackSend botUser: true, 
 			channel: '#ip1', 
 			color: '#00ff00', 
-			message: 'Successful deploy.'  'Build No.:' ${currentBuild.number}.  'Website URL:' ${WEBSITE_URL}, 
+			message: 'Successful deploy.'  'Build No.:' ${currentBuild.number}  'Website URL:' ${WEBSITE_URL} 
 			tokenCredentialId: ${SLACK_TOKEN}
 			
 			
