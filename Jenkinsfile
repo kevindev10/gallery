@@ -8,8 +8,7 @@ pipeline{
     environment {
         EMAIL_RECIPIENT = 'kevin.ndolo@student.moringaschool.com'
         RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-cvj6cqer433s73fq4tr0?key=dWix_l9i-LI"
-		// SLACK_TOKEN = "xoxb-8683554533441-8694717634560-yEwDyNbcKzEwoq40vwo39VaQ"
-        SLACK_TOKEN = "4919a5be-77cc-4129-9ff6-9cfff0274d13"
+		SLACK_TOKEN = "4919a5be-77cc-4129-9ff6-9cfff0274d13"
 		WEBSITE_URL = "https://gallery-u15x.onrender.com"
     }
 
@@ -50,13 +49,13 @@ pipeline{
 			slackSend botUser: true, 
 			channel: '#ip1', 
 			color: '#00ff00', 
-			message: 'Successful deploy.  Build No.: ${currentBuild.number}.  Website URL:  ${WEBSITE_URL}', 
-			tokenCredentialId: "${SLACK_TOKEN}"
+			message: 'Successful deploy.'  'Build No.:' ${currentBuild.number}.  'Website URL:' ${WEBSITE_URL}, 
+			tokenCredentialId: ${SLACK_TOKEN}
 			
 			
         }
         failure {
-            mail to: "${EMAIL_RECIPIENT}",
+            mail to: ${EMAIL_RECIPIENT},
                  subject: 'Pipeline Failure Notification',
                  body: 'The pipeline failed at some stage. Please check Jenkins logs for details.'
         }
