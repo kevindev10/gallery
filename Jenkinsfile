@@ -1,7 +1,10 @@
 pipeline{
     agent any
 
-    
+    tools {
+        nodejs "nodejs" 
+    }
+
     environment {
         EMAIL_RECIPIENT = 'kevin.ndolo@student.moringaschool.com'
         RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-cvj6cqer433s73fq4tr0?key=dWix_l9i-LI"
